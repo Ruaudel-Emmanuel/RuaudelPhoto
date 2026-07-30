@@ -108,7 +108,7 @@
         
         .hero-section {
             height: 85vh; /* Prend une grande partie de la hauteur visible */
-            background-image: url('019_19A copie.jpg'); /* PLACEHOLDER HERO IMAGE STREET */
+            background-image: url('Photos/Dordogne 111.jpg'); /* PLACEHOLDER HERO IMAGE STREET */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -254,7 +254,7 @@
             overflow: hidden;
             position: relative;
             /* Reste sur un ratio visible pour simuler le comportement web (WebP Placeholder) */
-            padding-bottom: 75%; /* Ratio carré ou légèrement rectangulaire par défaut */
+            padding-bottom: 0%; /* Ratio carré ou légèrement rectangulaire par défaut */
             background-color: #ddd; /* Placeholder de couleur */
         }
 
@@ -284,12 +284,12 @@
         }
 
         .section-contact h2 {
-            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-size: clamp(0.8rem, 4vw, 2rem);
             margin-bottom: 15px;
         }
 
         .section-contact p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 40px;
             color: var(--color-secondary);
         }
@@ -320,13 +320,9 @@
             background-color: #1c1c1c;
             color: var(--color-secondary);
             text-align: center;
-            padding: 40px 0;
             font-size: 0.9rem;
         }
         
-        .footer p {
-             margin-top: 15px;
-        }
 
         /* ==================================================== */
         /* MEDIA QUERIES (RESPONSIVE) */
@@ -347,6 +343,9 @@
         }
 
     </style>
+
+    <script async src="https://tally.so/widgets/embed.js"></script>
+
 </head>
 <body>
 
@@ -418,12 +417,14 @@
         <h2 style="text-align: center; margin-bottom: 50px;">Quelques ambiances récentes</h2>
         <div class="portfolio-gallery">
             <!-- PLACEHOLDERS D'IMAGES (WebP recommandé) -->
-            <div class="photo-item"><img src="placeholder1.webp" alt="Photo de rue noir et blanc"></div>
-            <div class="photo-item"><img src="placeholder2.webp" alt="Architecture moderne en couleur"></div>
-            <div class="photo-item"><img src="placeholder3.webp" alt="Paysage ou reportage événementiel"></div>
-            <div class="photo-item"><img src="placeholder4.webp" alt="Portrait de dirigeant dans son environnement"></div>
-            <div class="photo-item"><img src="placeholder5.webp" alt="Scène d'atelier ou chantier en action"></div>
-            <div class="photo-item"><img src="placeholder6.webp" alt="Vue aérienne/grande ampleur pour PME"></div>
+            <div class="photo-item"><img src="Photos/Paimpol carré 112.JPG" alt="Photo de rue noir et blanc"></div>
+            <div class="photo-item"><img src="Photos/urbain carré 111.jpg" alt="Architecture moderne en couleur"></div>
+            <div class="photo-item"><img src="Photos/bateau carré 111.JPG" alt="Paysage ou reportage événementiel"></div>
+            <div class="photo-item"><img src="Photos/Portrait carré 111.JPG" alt="Portrait de dirigeant dans son environnement"></div>
+            <div class="photo-item"><img src="Photos/bateau carré 112.JPG" alt="Scène d'atelier ou chantier en action"></div>
+            <div class="photo-item"><img src="Photos/Lyon carré 111.jpg" alt="Vue aérienne/grande ampleur pour PME"></div>
+
+            <p></p>
         </div>
     </section>
 
@@ -433,18 +434,21 @@
             <h2>Prêt à donner une nouvelle dimension à votre communication ?</h2>
             <p>Envoyez-moi un email et décrivons ensemble vos besoins. Je vous ferai parvenir ma proposition adaptée.</p>
             
-            <!-- Utilisation d'un lien mailto pour éviter le formulaire complexe initialement -->
             <div class="email-contact">
-                <a href="mailto:ruaudel.emmanuel@orange.fr?subject=Demande%20Photographie%20Entreprise" target="_blank">Contactez-moi par email</a>
+                <a data-tally-open="MeX26E" data-tally-emoji-text="👋">
+                    <span class="btn-primary">Parlez de votre projet</span>
+                </a>
+                    
             </div>
+            <p></p>
+            <p>&copy; 2026 Emmanuel Ruaudel Photographe. Tous droits réservés.</p>
+            <p style="margin-top: 15px;">Basé à Rennes, Bretagne. Documentaire | Argentique & Numérique.</p>
 
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer container">
-        <p>&copy; 2024 Emmanuel Ruaudel Photographe. Tous droits réservés.</p>
-        <p style="margin-top: 15px;">Basé à Rennes, Bretagne. Documentaire | Argentique & Numérique.</p>
     </footer>
 
 </body>
