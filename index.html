@@ -1,455 +1,167 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emmanuel Ruaudel | Photographie Documentaire - Rennes</title>
-    <!-- Favicon (À insérer plus tard) -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Importation de polices modernes et lisibles (Google Fonts recommandée) -->
-    <!-- Utilisation d'une Serif pour le caractère artistique, et une Sans-Serif très neutre pour la lecture web -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap">
+  <!-- Titre plus axé sur la Solution + Localisation -->
+  <title>Automatisation PME à Rennes : IA, API et n8n pour gagner du temps | Emmanuel Ruaudel</title>
+  
+  <meta
+    name="description"
+    content="Freelance à Rennes. J'aide les TPE/PME à automatiser leurs processus métiers grâce à Python, IA, API et n8n pour garantir des gains de temps immédiats."
+  >
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://rennesdev.fr/">
 
-    <style>
-        /* ==================================================== */
-        /* 🎨 STYLE GÉNÉRAL ET RÉINITIALISATION (The Look & Feel) */
-        /* ==================================================== */
+  <!-- Open Graph - Amélioration du texte -->
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Automatisation PME à Rennes : IA, API et n8n pour gagner du temps | Emmanuel Ruaudel">
+  <meta property="og:description" content="Automatisation de processus métiers sur mesure pour TPE/PME (Python, IA, API) - Gains de temps mesurables garantis.">
+  <meta property="og:url" content="https://rennesdev.fr/">
+  <meta property="og:site_name" content="RennesDev">
+  <meta property="og:image" content="https://rennesdev.fr/banniere-codeur.jpg">
 
-        :root {
-            --color-primary: #333; /* Noir profond pour le texte principal */
-            --color-secondary: #777; /* Gris doux pour les sous-titres/secondaires */
-            --color-background: #ffffff; /* Fond blanc épuré */
-            /* L'accent doit être sobre, comme un sépia ou un gris chaud pour rester "d'auteur" */
-            --color-accent: #9c9285; 
-            --font-serif: 'Playfair Display', serif; /* Pour le côté artistique/titres forts */
-            --font-sans: 'Inter', sans-serif;     /* Pour la lisibilité et les corps de texte */
-        }
+  <!-- Twitter (Conservé) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automatisation Python, IA et API à Rennes | Emmanuel Ruaudel">
+  <meta name="twitter:description" content="Solutions d'automatisation sur mesure pour PME (Python, IA, API) : Gagnez 10h/semaine.">
+  <meta name="twitter:image" content="https://rennesdev.fr/banniere-codeur.jpg">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- CSS & Scripts -->
+  <link rel="stylesheet" href="./style.css">
 
-        body {
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            color: var(--color-primary);
-            background-color: var(--color-background);
-        }
+  <!-- Google Tag Manager (Inchangé) -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l !== 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TTQJKPBQ');
+  </script>
+  <!-- End Google Tag Manager -->
 
-        h1, h2, h3 {
-            font-family: var(--font-serif);
-            font-weight: 700;
-            line-height: 1.1;
-        }
+  <!-- SCHEMA MARKUP : L'énorme changement ici ! -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "RennesDev - Conseil en Automatisation IA & API pour PME",
+  "description": "Emmanuel Ruaudel est un consultant indépendant spécialisé dans l'automatisation des processus métiers (CRM, facturation, données) grâce à Python, n8n et agents IA. Nous aidons les PME rennaises à optimiser leur temps de travail.",
+  "url": "https://rennesdev.fr/",
+  "image": "https://rennesdev.fr/banniere-codeur.jpg",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.21,
+    "longitude": -1.50 // Coordonnées approximatives de Rennes
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Bretagne"
+  }
+}
+</script>
 
-        a {
-            text-decoration: none;
-            color: var(--color-primary);
-        }
-
-        /* Conteneur général pour centrer le contenu et éviter l'effet "bandeau" */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 4vw; /* Padding horizontal adapté au responsive */
-        }
-
-        /* Éléments de section (spacing) */
-        section {
-            padding: 80px 0;
-        }
-
-
-        /* ==================================================== */
-        /* 🚀 HEADER & NAVIGATION (Minimaliste et discret) */
-        /* ==================================================== */
-
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.9); /* Fond semi-transparent pour l'effet moderne */
-            border-bottom: 1px solid #eee;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo a {
-            font-family: var(--font-serif);
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-        
-        /* Menu items */
-        .nav-links a {
-            margin-left: 30px;
-            font-weight: 400;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-accent); /* Couleur subtile au survol */
-        }
-
-
-        /* ==================================================== */
-        /* ✨ HERO SECTION (L'impact immédiat) */
-        /* ==================================================== */
-        
-        .hero-section {
-            height: 85vh; /* Prend une grande partie de la hauteur visible */
-            background-image: url('Photos/Dordogne 111.jpg'); /* PLACEHOLDER HERO IMAGE STREET */
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff; 
-            /* Important : La position relative est nécessaire pour que l'overlay fonctionne */
-            position: relative; 
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.45); /* Fond noir semi-transparent */
-        }
-
-        /* MODIFICATION CLÉ : Le hero-content est maintenant le POSEUR de position */
-        .hero-content {
-            position: absolute; 
-            z-index: 10; 
-            /* On retire les dimensions fixes pour que le contenu inner prenne le relais */
-            max-width: none; 
-            padding: auto;
-        }
-
-        /* NOUVEAU STYLE : Cette classe reçoit le .container et centre/limite la largeur du texte */
-        .hero-text-wrapper {
-            display: flex; /* Utilise flex pour centrer facilement tout son contenu */
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center; /* Centre horizontalement les éléments textuels */
-        }
-
-        /* ... (Le reste de votre CSS est inchangé) ... */
-
-
-        .hero-content h1 {
-            font-size: clamp(2rem, 6vw, 4rem); /* Taille adaptative du titre */
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            color: #fff;
-        }
-
-        .hero-content p {
-            font-size: clamp(1rem, 2vw, 1.4rem);
-            margin-bottom: 30px;
-            opacity: 0.9;
-            max-width: 650px;
-        }
-
-        /* Bouton CTA (Call To Action) */
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            border: 2px solid #fff;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #fff;
-            border-color: #fff;
-            color: var(--color-primary);
-        }
-
-
-        /* ==================================================== */
-        /* ✍️ SECTION D'ACCROCHE / POSITIONNEMENT (Le Corps du Texte) */
-        /* ==================================================== */
-
-        .section-two {
-            text-align: center;
-            background-color: #f9f7f4; /* Fond très légèrement gris pour séparer visuellement */
-            padding: 80px 0;
-        }
-
-        .section-two h2 {
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            margin-bottom: 20px;
-            color: var(--color-primary);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-two p {
-            font-size: 1.15rem;
-            max-width: 900px;
-            margin: 20px auto;
-            color: var(--color-secondary);
-        }
-
-
-        /* ==================================================== */
-        /* ⚙️ SECTION PRESTATIONS & DÉMARCHE (Le Comment) */
-        /* ==================================================== */
-
-        .services-grid {
-            display: flex;
-            flex-wrap: wrap; /* Permet de passer à la ligne sur mobile */
-            gap: 30px;
-            margin-top: 40px;
-            justify-content: center;
-        }
-
-        .service-card {
-            background: #fff;
-            border: 1px solid #eee;
-            padding: 30px;
-            flex: 1 1 280px; /* Flexibilité : prend au moins 280px, mais peut s'ajuster */
-            transition: transform 0.3s ease;
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--color-primary);
-        }
-
-        .service-card p {
-            color: var(--color-secondary);
-        }
-        
-        /* ==================================================== */
-        /* 🖼️ SECTION PORTFOLIO (La Preuve Visuelle) */
-        /* ==================================================== */
-
-        .portfolio-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grille responsive de base */
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .photo-item {
-            overflow: hidden;
-            position: relative;
-            /* Reste sur un ratio visible pour simuler le comportement web (WebP Placeholder) */
-            padding-bottom: 0%; /* Ratio carré ou légèrement rectangulaire par défaut */
-            background-color: #ddd; /* Placeholder de couleur */
-        }
-
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Assure que l'image couvre tout l'espace sans déformation */
-            transition: transform 0.4s ease;
-        }
-
-        /* Effet de survol (modern et interactif) */
-        .photo-item img:hover {
-            transform: scale(1.05);
-            opacity: 0.9;
-        }
-
-
-        /* ==================================================== */
-        /* 📞 SECTION CONTACT / CTA FINAL */
-        /* ==================================================== */
-
-        .section-contact {
-            background-color: var(--color-primary); /* Fond noir/gris foncé pour le contraste final */
-            color: #fff;
-            text-align: center;
-            padding: 80px 0;
-        }
-
-        .section-contact h2 {
-            font-size: clamp(0.8rem, 4vw, 2rem);
-            margin-bottom: 15px;
-        }
-
-        .section-contact p {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            color: var(--color-secondary);
-        }
-
-        /* Formulaire simple (Placeholder) */
-        .email-contact a {
-            display: inline-block;
-            padding: 15px 35px;
-            background: #fff;
-            color: var(--color-primary);
-            border-radius: 4px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .email-contact a:hover {
-            background: var(--color-accent);
-            border-color: var(--color-accent);
-            color: #fff;
-        }
-
-
-        /* ==================================================== */
-        /* 📄 FOOTER (Clôture professionnelle) */
-        /* ==================================================== */
-
-        .footer {
-            background-color: #1c1c1c;
-            color: var(--color-secondary);
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-
-        /* ==================================================== */
-        /* MEDIA QUERIES (RESPONSIVE) */
-        /* ==================================================== */
-
-        @media (max-width: 768px) {
-            .nav-links a {
-                margin-left: 15px;
-                font-size: 0.9rem;
-            }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-             /* Les sections de contenu doivent s'empiler bien sur mobile */
-            section {
-                padding: 60px 0;
-            }
-        }
-
-    </style>
-
-    <script async src="https://tally.so/widgets/embed.js"></script>
+<script async src="https://tally.so/widgets/embed.js"></script>
 
 </head>
+
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>...</noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-    <!-- HEADER ET NAVIGATION -->
-    <header class="header">
-        <div class="container nav-content">
-            <div class="logo"><a href="#">Emmanuel Ruaudel</a></div>
-            <nav class="nav-links">
-                <a href="#services">Prestations</a>
-                <a href="#portfolio-section">Portfolio</a>
-                <a href="#propos">À Propos</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+<nav>
+  <div class="nav .container">
+    <div class="nav-links">
+      <a href="portofolio.html">Portfolio</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="appli.html">Outils gratuits</a>
+      <a href="https://www.malt.fr/profile/emmanuelruaudel" target="_blank">Malt</a>
+      <a href="https://www.linkedin.com/in/emmanuel-ruaudel-bb5059362/" target="_blank">Linkedin</a>
+    </div >
+  </nav>
 
-    <!-- 🖼️ SECTION HERO (L'accroche Visuelle Maîtresse) -->
-    <main class="hero-section" id="home">
-        <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <!-- AJOUT : Utilisation de la classe container pour garantir l'alignement horizontal -->
-                <div class="container hero-text-wrapper"> 
-                    <h1>Des Images Vraies Pour Votre Présence</h1>
-                    <p>Photographie documentaire de lieux, d'équipes et d'événements professionnels. Un regard sensible pour les TPE & PME locales.</p>
-                    <a href="#contact" class="cta-button">Discutons de votre projet</a>
-                </div>  
-            </div>
-        </div>
+ <!-- HERO (Contenu amélioré) -->
+ <section class="hero">
+    <div class="container content-area">
+        <!-- H2 est maintenu, il est parfait -->
+        <h1 class="section-title">J'aide les PME rennaises à économiser jusqu'à 10 heures par semaine.</h1>
+        <!-- PARAGRAPHE DE CONTEXTE CRITIQUE POUR L'IA OVERVIEW -->
+<p>Actuellement en pause estivale jusqu'au lundi 24 août. Je serai de retour avec énergie pour vous aider à transformer vos processus ! </p>
+ </p>
+    </div>
+    </div>
+</section>
 
-    </main>
+ <main>
 
-    <!-- ✍️ SECTION POSITIONNEMENT (Le Problème/Solution) -->
-    <section class="section-two container" id="propos">
-        <h2>Votre histoire mérite d'être racontée autrement.</h2>
-        <p>Je construis, depuis plus de vingt ans, un regard photographique personnel ancré dans le réel. Ma démarche va au-delà du simple cliché : elle capte l’ambiance, les gestes et la lumière qui donnent du caractère unique à votre activité.</p>
-    </section>
+  <!-- SECTION INTRODUCTIVE ET D'AUTORITÉ (Nouveau H2 & Texte préparatoire aux stats) -->
+ <section class="hero">
+     <div class="container">
+        <p></p>
+        <h2>💡 Comment fonctionne mon accompagnement ? De la douleur opérationnelle au système autonome.</h2>
+        <p>Mon approche n'est jamais axée sur les outils, mais **sur vos processus**. Nous commençons par un audit sans jargon pour identifier les vraies failles : quelle tâche vous fait perdre du temps et quel est le coût de cette perte ? Ensuite, je prototyper la solution (MVP) et nous mesurons ensemble le gain en heures/euros. Mon objectif n'est pas l'accumulation d'outils, mais la création d'un système **simple, robuste et pérenne** pour votre équipe.</p>
+        </p></p>
+    </div>
+</section>
 
-    <!-- ⚙️ SECTION PRESTATIONS (Le Quoi) -->
-    <section class="container" id="services">
-        <div style="text-align: center; margin-bottom: 60px;">
-            <h2 style="font-size: clamp(1.8rem, 4vw, 3rem);">Mon univers : Le reportage qui crédibilise</h2>
-            <p style="font-size: 1.15rem; color: var(--color-secondary);">Je me concentre sur les besoins professionnels pour que votre communication visuelle soit authentique et impactante.</p>
-        </div>
+    <!-- STATS BAND (Mis sous un H2 explicite) -->
+<section class="stats-band" aria-label="Statistiques clés">
+  <div class="container">
+    <h3>🚀 Les résultats que vous pouvez attendre avec l'automatisation.</h3> <!-- Ajout d'un petit titre pour englober les stats -->
+    <div class="stats-inner">
+      <div class="stat-item">
+      <div class="number">+1 200 h</div >
+      <div class="label">économisées tous clients confondus</div >
+    </div>
+    <!-- ... (les autres stat-items restent les mêmes) -->
+    <div class="stat-item">
+      <div class="number">−95 %</div >
+      <div class="label">temps de traitement (enrichissement données)</div >
+    </div>
+    <div class="stat-item">
+      <div class="number">−80 %</div >
+      <div class="label">erreurs de saisie manuelle</div >
+    </div>
+    <div class="stat-item">
+      <div class="number">&lt; 2 mois</div >
+      <div class="label">retour sur investissement moyen</div >
+    </div>
+     <div class="stat-item">
+      <div class="number">10 h/sem</div >
+      <div class="label">récupérées en moyenne par client</div >
+    </div>
+  </div>
+</section>
+   <!-- Le reste du main (CTA et footer) -->
 
-        <div class="services-grid">
-            <!-- Carte 1 : Reportage entreprise -->
-            <div class="service-card">
-                <h3>🏢 Reportages d'entreprise</h3>
-                <p>Capturer le quotidien de votre atelier, vos équipes et vos processus. Idéal pour rassurer les clients et valoriser votre savoir-faire.</p>
-            </div>
+ <!-- CTA FINAL -->
+ <section class="cta-section">
+     <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+        <!-- J'ai ajouté un titre de conclusion pour renforcer l'appel à l'action -->
+        <h2>Prêt à transformer vos process ? Parlons résultats concrets.</h2>
+        <a data-tally-open="WO26DL" data-tally-emoji-text="👋">
+            <span class="btn-primary">Définir votre cas d’usage</span>
+        </a>
+    </div>
+</section>
 
-             <!-- Carte 2 : Événementiel Pro -->
-            <div class="service-card">
-                <h3>🥂 Événements professionnels</h3>
-                <p>Couverture de séminaires, inaugurations ou journées portes ouvertes. Des reportages qui racontent l'énergie et la dimension humaine du moment.</p>
-            </div>
 
-             <!-- Carte 3 : Portraits & Direction -->
-            <div class="service-card">
-                <h3>🤵 Portraits d’équipe et de dirigeant</h3>
-                <p>Des portraits qui ne sont pas en pose, mais qui traduisent l'identité et le caractère humain au cœur de votre entreprise.</p>
-            </div>
-        </div>
-        <p style="margin-top: 50px; font-style: italic;">*(Je ne couvre pas les mariages pour garder une cohérence artistique et documentaire.)*</p>
-    </section>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Emmanuel Ruaudel - RennesDev. L'automatisation au service de votre croissance.</p>
+    </div >
+  </footer>
 
-    <!-- 🖼️ SECTION PORTFOLIO (La Preuve) -->
-    <section class="container" id="portfolio-section">
-        <h2 style="text-align: center; margin-bottom: 50px;">Quelques ambiances récentes</h2>
-        <div class="portfolio-gallery">
-            <!-- PLACEHOLDERS D'IMAGES (WebP recommandé) -->
-            <div class="photo-item"><img src="Photos/Paimpol carré 112.JPG" alt="Photo de rue noir et blanc"></div>
-            <div class="photo-item"><img src="Photos/urbain carré 111.jpg" alt="Architecture moderne en couleur"></div>
-            <div class="photo-item"><img src="Photos/bateau carré 111.JPG" alt="Paysage ou reportage événementiel"></div>
-            <div class="photo-item"><img src="Photos/Portrait carré 111.JPG" alt="Portrait de dirigeant dans son environnement"></div>
-            <div class="photo-item"><img src="Photos/bateau carré 112.JPG" alt="Scène d'atelier ou chantier en action"></div>
-            <div class="photo-item"><img src="Photos/Lyon carré 111.jpg" alt="Vue aérienne/grande ampleur pour PME"></div>
-
-            <p></p>
-        </div>
-    </section>
-
-    <!-- 📞 SECTION CONTACT (Le CTA Final) -->
-    <section class="section-contact" id="contact">
-        <div class="container">
-            <h2>Prêt à donner une nouvelle dimension à votre communication ?</h2>
-            <p>Envoyez-moi un email et décrivons ensemble vos besoins. Je vous ferai parvenir ma proposition adaptée.</p>
-            
-            <div class="email-contact">
-                <a data-tally-open="MeX26E" data-tally-emoji-text="👋">
-                    <span class="btn-primary">Parlez de votre projet</span>
-                </a>
-                    
-            </div>
-            <p></p>
-            <p>&copy; 2026 Emmanuel Ruaudel Photographe. Tous droits réservés.</p>
-            <p style="margin-top: 15px;">Basé à Rennes, Bretagne. Documentaire | Argentique & Numérique.</p>
-
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer container">
-    </footer>
+</main>
 
 </body>
 </html>
